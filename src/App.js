@@ -9,7 +9,10 @@ function App() {
   const [todos, setTodos] = useState([{text: "Do laundry", complete: false}, {text: "Clean room", complete: false}]);
 
   const newTodo = (item) => {
-
+    setTodos({
+      text: item,
+      complete: false,
+    })
   }
 
   return (

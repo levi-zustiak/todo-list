@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './Todo.js';
+import TodoForm from './TodoForm.js';
 
 export default function TodoList(props) {
   const handleClick = () => {
@@ -20,6 +21,7 @@ export default function TodoList(props) {
           )
         })}
       </div>
+      <TodoForm />
       <button className="task-button" onClick={handleClick}>New Task</button>
     </div>
   )

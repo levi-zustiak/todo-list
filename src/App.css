@@ -49,6 +49,9 @@
   height: 2rem;
 }
 
+.todo-form {
+}
+
 .todo {
   width: 100%;
   display: flex;
