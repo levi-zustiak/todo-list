@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TodoForm({ addTask }) {
+export default function TodoForm({ addTask, handleToggle }) {
   const [userInput, setUserInput] = useState('');
 
   const handleChange = (e) => {

@@ -19,11 +19,28 @@ function App() {
     ]);
   }
 
+  const handleToggle = (id) => {
+    let mapped = todos.map(task => {
+      return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task }});
+    setTodos(mapped);
+  }
+
+  const handleDelete = () => {
+    let filtered = todos.filter(todo => {
+      return !todo.complete})
+    setTodos(filtered)
+  }
+
   return (
     <div className="App">
       <Header />
       <div className="main">
-        <TodoList todos={todos} addTask={addTask} />
+        <TodoList
+          todos={todos}
+          addTask={addTask}
+          handleToggle={handleToggle}
+          handleDelete={handleDelete}
+        />
         <Greeting />
       </div>
     </div>

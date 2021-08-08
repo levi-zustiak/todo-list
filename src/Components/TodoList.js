@@ -2,7 +2,7 @@ import React from 'react';
 import Todo from './Todo.js';
 import TodoForm from './TodoForm.js';
 
-export default function TodoList({ todos, addTask }) {
+export default function TodoList({ todos, addTask, handleToggle, handleDelete }) {
 
   return (
     <div className="todo-wrapper">
@@ -10,12 +10,17 @@ export default function TodoList({ todos, addTask }) {
         <h3 className="todo-header">Todos</h3>
         {todos.map(todo => {
           return (
-              <Todo key={todo.id} todo={todo} />
+              <Todo
+                key={todo.id}
+                todo={todo}
+                handleToggle={handleToggle}
+              />
           )
         })}
       </div>
       <TodoForm addTask={addTask}/>
       <button className="task-button" >New Task</button>
+      <button className="clear-button" onClick={handleDelete}>Clear complete</button>
     </div>
   )
 }
