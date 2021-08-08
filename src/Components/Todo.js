@@ -1,11 +1,10 @@
 import React from 'react';
 
-export default function Todo(props) {
+export default function Todo({ todo }) {
 
   return (
     <div className="todo">
-      <p>{props.todo.text}</p>
-      <p>{props.todo.complete ? 'complete' : 'incomplete'}</p>
+      <p>{todo.text}</p>
     </div>
   )
 }

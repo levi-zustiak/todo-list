@@ -1,25 +1,29 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from './Components/Header.js';
 import TodoList from './Components/TodoList.js';
 import Greeting from './Components/Greeting.js';
 
 
 function App() {
-  const [todos, setTodos] = useState([{text: "Do laundry", complete: false}, {text: "Clean room", complete: false}]);
+  const [todos, setTodos] = useState([{id: 1, text: "Do laundry", complete: false}, {id: 2, text: "Clean room", complete: false}]);
 
-  const newTodo = (item) => {
-    setTodos({
-      text: item,
-      complete: false,
-    })
+  const addTask = (userInput) => {
+    setTodos([
+      ...todos,
+      {
+        id: todos.length + 1,
+        text: userInput,
+        completed: false,
+      }
+    ]);
   }
 
   return (
     <div className="App">
       <Header />
       <div className="main">
-        <TodoList todos={todos} newTodo={newTodo} />
+        <TodoList todos={todos} addTask={addTask} />
         <Greeting />
       </div>
     </div>

@@ -2,27 +2,20 @@ import React from 'react';
 import Todo from './Todo.js';
 import TodoForm from './TodoForm.js';
 
-export default function TodoList(props) {
-  const handleClick = () => {
-    props.newTodo(
-      alert('clicked')
-    )
-  }
+export default function TodoList({ todos, addTask }) {
 
   return (
     <div className="todo-wrapper">
       <div className="todo-list">
         <h3 className="todo-header">Todos</h3>
-        {props.todos.map((todo, index) => {
+        {todos.map(todo => {
           return (
-            <div key={index}>
-              <Todo todo={todo} />
-            </div>
+              <Todo key={todo.id} todo={todo} />
           )
         })}
       </div>
-      <TodoForm />
-      <button className="task-button" onClick={handleClick}>New Task</button>
+      <TodoForm addTask={addTask}/>
+      <button className="task-button" >New Task</button>
     </div>
   )
 }
